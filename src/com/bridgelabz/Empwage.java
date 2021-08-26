@@ -2,15 +2,13 @@ package com.bridgelabz;
 
 public class Empwage {
 
-    public static final int WAGE_PER_HOUR = 20;
     public static final int FULL_DAY_HOURS = 2;
     public static final int PART_TIME_HOURS = 1;
-    public static final int NUM_OF_WORKING_DAYS = 20;
-    public static final int MAX_HRS_IN_MONTH = 100;
 
-    public static int empWageSystem() {
+
+    public static int empWageSystem(String company, int wagePerHour, int numOfWorkingDays, int maxHrsPerMonth ) {
         int empHours = 0, empWagePerMonth = 0, totalHrs = 0, totalWorkingDays = 0;
-        while (totalHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) {
+        while (totalHrs <= maxHrsPerMonth && totalWorkingDays < numOfWorkingDays) {
             totalWorkingDays++;
             int checkOut = (int) Math.floor(Math.random() * 10) % 3;
             switch (checkOut) {
@@ -28,13 +26,17 @@ public class Empwage {
 
         }
         System.out.println("Employee total Hours ::"+totalHrs);
-        int totalEmpWage = totalHrs * WAGE_PER_HOUR;
+        int totalEmpWage = totalHrs * wagePerHour;
         System.out.println("Employee per month::"+totalEmpWage);
         return totalEmpWage;
     }
 
     public static void main(String[] args) {
-        System.out.println("Welcomr to Employee Wage.");
-        empWageSystem();
+        System.out.println("Welcome to Employee Wage system for BIG BAZAR.");
+        empWageSystem("Big Bazar",20,20,100);
+        System.out.println("Welcomr to Employee Wage system for SAMSUNG.");
+        empWageSystem("SAMSUNG",30,25,80);
+        System.out.println("Welcomr to Employee Wage System for NOKIA.");
+        empWageSystem("Nokia", 28,23,105);
     }
 }
